@@ -14,3 +14,4 @@ def test_volcano_key():
 
 def test_x_key():
     assert tm.map['x'] == 'marks the spot'.casefold()
+
