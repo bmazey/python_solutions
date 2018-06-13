@@ -20,3 +20,4 @@ class GroceryList:
         self.items.append('seltzer')
         self.items.append('honey')
         self.items.append('seltzer')
+
