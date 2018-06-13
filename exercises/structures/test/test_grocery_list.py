@@ -22,3 +22,4 @@ def test_third_item_equals_fifth_item():
 
 def test_fourth_item():
     assert gl.items[3] == 'honey'
+
