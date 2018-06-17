@@ -5,6 +5,7 @@ from exercises.patterns.factory.direction import Direction
 from exercises.patterns.factory.room import Room
 from exercises.patterns.factory.door import Door
 from exercises.patterns.factory.wall import Wall
+from exercises.patterns.factory.player import Player
 
 def create_maze():
     """Series of operations which create our Maze."""
@@ -28,3 +29,20 @@ def create_maze():
 
     return maze
 
+def play(maze, player):
+    print("\n--> Player {} enters the maze in room".format(player.player_id, player.current_room.room_number))
+    room1 = player.current_room
+    for side in Direction.ALL:
+        print("\t{} SIDE: {}".format(side, room1.get_side(side)))
+
+    thedoor = room1.get_side(Direction.EAST)
+    if not thedoor.is_open:
+        thedoor.unlock()
+    player = thedoor.enter(player)
+
+    for side in Direction.ALL:
+        print("\t{} SIDE: {}".format(side, room1.get_side(side)))
+
+if __name__ == "__main__":
+    maze = create_maze()
+    play(maze, Player("Pinky", maze.get_room_by_number(1)))
