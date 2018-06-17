@@ -7,6 +7,6 @@ class Car(object):
         self.color = color
 
     def __str__(self):
-        return "This is a {0} car with {1) wheels and {2} doors. " \
-               "It runs on {3}.".format(self.color, self.wheels, self.doors, self.fuel)
+        return "This is a {} car with {} wheels and {} doors. " \
+               "It runs on {}.".format(self.color, self.wheels, self.doors, self.fuel)
 
