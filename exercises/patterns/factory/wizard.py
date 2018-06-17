@@ -1,3 +1,5 @@
+# borrowed from http://pythoninthepink.blogspot.com/
+
 from exercises.patterns.factory.player import Player
 
 class Wizard(Player):

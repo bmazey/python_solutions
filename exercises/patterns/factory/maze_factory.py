@@ -1,9 +1,11 @@
+# borrowed from http://pythoninthepink.blogspot.com/
+
 from exercises.patterns.factory.maze import Maze
 from exercises.patterns.factory.wall import Wall
 from exercises.patterns.factory.room import Room
 from exercises.patterns.factory.door import Door
 
-class BasicMazeFactory(object):
+class MazeFactory(object):
 
     """Factory producing basic Maze."""
 
