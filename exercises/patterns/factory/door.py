@@ -26,3 +26,11 @@ class Door(MapSite):
     def unlock(self):
         self.open = True
         print("The door is now unlocked!")
+
+    def enter(self, player):
+        """Entering the door means going to room on the other side. A player can enter the door only if it's opened."""
+        if self.is_open:
+            other_room = self.other_side_from(player.current_room)
+            other_room.enter(player)
+        else:
+            super().enter(player)

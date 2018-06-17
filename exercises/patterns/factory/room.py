@@ -24,3 +24,8 @@ class Room(MapSite):
     def set_side(self, direction, map_site_object):
         """Set a MapSite object for given Direction"""
         self.sides[direction] = map_site_object
+
+    def enter(self, player):
+        """Entering a room changes player's location."""
+        print("--> {} enters room: {}".format(player.player_id, self.room_number))
+        player.current_room = self
