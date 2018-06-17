@@ -40,7 +40,7 @@ def play(maze, player):
         door.unlock()
         door.enter(player)
 
-    # lol - this line gave me so many headaches - python is different than Java! :)
+    # lol, this line gave me so many headaches - python is different than Java! :)
     room2 = player.current_room
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room2.get_side(side)))
