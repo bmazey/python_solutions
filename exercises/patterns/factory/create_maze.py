@@ -30,7 +30,7 @@ def create_maze():
     return maze
 
 def play(maze, player):
-    print("\n--> Player {} enters the maze in room".format(player.player_id, player.current_room.room_number))
+    print("\n--> Player {} enters the maze in room {}".format(player.player_id, player.current_room.room_number))
     room1 = player.current_room
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room1.get_side(side)))
@@ -38,10 +38,12 @@ def play(maze, player):
     door = room1.get_side(Direction.EAST)
     if not door.is_open:
         door.unlock()
-    player = door.enter(player)
+        door.enter(player)
 
+    # lol - this line gave me so many headaches - python is different than Java! :)
+    room2 = player.current_room
     for side in Direction.ALL:
-        print("\t{} SIDE: {}".format(side, room1.get_side(side)))
+        print("\t{} SIDE: {}".format(side, room2.get_side(side)))
 
 if __name__ == "__main__":
     maze = create_maze()
