@@ -1,3 +1,5 @@
+# borrowed from http://pythoninthepink.blogspot.com/
+
 from exercises.patterns.factory.room import Room
 
 class EnchantedRoom(Room):
