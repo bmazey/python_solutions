@@ -12,20 +12,20 @@ def create_maze():
     maze = Maze()
     room1 = Room(1)
     room2 = Room(2)
-    thedoor = Door(room1, room2)
+    door = Door(room1, room2)
 
     maze.add_room(room1)
     maze.add_room(room2)
 
     room1.set_side(Direction.NORTH, Wall())
-    room1.set_side(Direction.EAST, thedoor)
+    room1.set_side(Direction.EAST, door)
     room1.set_side(Direction.SOUTH, Wall())
     room1.set_side(Direction.WEST, Wall())
 
     room2.set_side(Direction.NORTH, Wall())
     room2.set_side(Direction.EAST, Wall())
     room2.set_side(Direction.SOUTH, Wall())
-    room2.set_side(Direction.WEST, thedoor)
+    room2.set_side(Direction.WEST, door)
 
     return maze
 
@@ -35,10 +35,10 @@ def play(maze, player):
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room1.get_side(side)))
 
-    thedoor = room1.get_side(Direction.EAST)
-    if not thedoor.is_open:
-        thedoor.unlock()
-    player = thedoor.enter(player)
+    door = room1.get_side(Direction.EAST)
+    if not door.is_open:
+        door.unlock()
+    player = door.enter(player)
 
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room1.get_side(side)))
