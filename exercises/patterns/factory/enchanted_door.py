@@ -9,10 +9,16 @@ class EnchantedDoor(Door):
     def __init__(self, room1, room2):
         super().__init__(room1, room2)
 
+    def enter(self, player):
+        super().enter(player)
+        if not self.is_open:
+            print("You need to cast a spell first ...")
+
     def unlock(self, with_spell=False):
         """Unlocking without a spell doesn't work."""
 
         if not with_spell:
             print("You need to cast a spell first ...")
         else:
+            print(with_spell)
             super().unlock()

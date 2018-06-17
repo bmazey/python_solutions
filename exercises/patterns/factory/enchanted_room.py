@@ -10,3 +10,7 @@ class EnchantedRoom(Room):
         super().__init__(room_number)
         self.spell = spell
 
+    def enter(self, player):
+        super(EnchantedRoom, self).enter(player)
+        print("{} is under the spell {}".format(player.player_id, self.spell))
+
