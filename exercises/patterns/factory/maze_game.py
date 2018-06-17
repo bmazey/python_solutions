@@ -56,8 +56,8 @@ def create_enchanted_maze():
 
     return maze
 
-# this is the one we care the most about!
-def create_factory_maze(factory):
+# these are the ones we care the most about!
+def create_factory_maze_type_a(factory):
     """Series of operations which create our Maze."""
 
     maze = factory.make_maze()
@@ -77,6 +77,29 @@ def create_factory_maze(factory):
     room2.set_side(Direction.EAST, factory.make_wall())
     room2.set_side(Direction.SOUTH, factory.make_wall())
     room2.set_side(Direction.WEST, door)
+
+    return maze
+
+def create_factory_maze_type_b(factory):
+    """Series of operations which create our Maze."""
+
+    maze = factory.make_maze()
+    room1 = factory.make_room(1)
+    room2 = factory.make_room(2)
+    door = factory.make_door(room1, room2)
+
+    maze.add_room(room1)
+    maze.add_room(room2)
+
+    room1.set_side(Direction.NORTH, factory.make_wall())
+    room1.set_side(Direction.EAST, factory.make_wall())
+    room1.set_side(Direction.SOUTH, door)
+    room1.set_side(Direction.WEST, factory.make_wall())
+
+    room2.set_side(Direction.NORTH, door)
+    room2.set_side(Direction.EAST, factory.make_wall())
+    room2.set_side(Direction.SOUTH, factory.make_wall())
+    room2.set_side(Direction.WEST, factory.make_wall())
 
     return maze
 
@@ -102,7 +125,7 @@ def play_enchanted(maze, player):
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room1.get_side(side)))
 
-    door = room1.get_side(Direction.EAST)
+    door = room1.get_side(Direction.SOUTH)
     player.unlock_with_spell(door)
     door.enter(player)
 
@@ -111,8 +134,8 @@ def play_enchanted(maze, player):
         print("\t{} SIDE: {}".format(side, room2.get_side(side)))
 
 if __name__ == "__main__":
-    maze = create_factory_maze(MazeFactory)
-    enchanted_maze = create_factory_maze(EnchantedMazeFactory)
+    maze = create_factory_maze_type_a(MazeFactory)
+    enchanted_maze = create_factory_maze_type_b(EnchantedMazeFactory)
     play(maze, Player("Pinky", maze.get_room_by_number(1)))
     play_enchanted(enchanted_maze, Wizard("Harry", enchanted_maze.get_room_by_number(1)))
 
