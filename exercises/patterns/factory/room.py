@@ -29,3 +29,4 @@ class Room(MapSite):
         """Entering a room changes player's location."""
         print("--> {} enters room: {}".format(player.player_id, self.room_number))
         player.current_room = self
+

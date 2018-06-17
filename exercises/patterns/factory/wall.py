@@ -7,3 +7,4 @@ class Wall(MapSite):
     """Represents a Wall - you can't do anything with it."""
 
     pass
+

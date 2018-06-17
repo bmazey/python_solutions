@@ -46,3 +46,4 @@ def play(maze, player):
 if __name__ == "__main__":
     maze = create_maze()
     play(maze, Player("Pinky", maze.get_room_by_number(1)))
+
