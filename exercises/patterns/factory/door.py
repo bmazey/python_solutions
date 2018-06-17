@@ -34,3 +34,4 @@ class Door(MapSite):
             other_room.enter(player)
         else:
             super().enter(player)
+
