@@ -1,16 +1,16 @@
-from anytree import Node, RenderTree
+import anytree
 
 class FamilyTree:
     def __init__(self):
-        self.lucille = Node('Lucille')
+        self.lucille = anytree.Node('Lucille')
 
     def populate_family_tree(self):
 
         #ex: child = Node('Child Name', parent = parent_node)
 
-        self.george_oscar = Node('George Oscar', parent = self.lucille)
-        self.michael = Node('Michael', parent = self.lucille)
-        self.lindsay = Node('Lindsay', parent = self.lucille)
-        self.buster = Node('Buster', parent = self.lucille)
-        self.george_michael = Node('George Michael', parent = self.michael)
-        self.maeby = Node('Maeby', parent = self.lindsay)
+        self.george_oscar = anytree.Node('George Oscar', parent = self.lucille)
+        self.michael = anytree.Node('Michael', parent = self.lucille)
+        self.lindsay = anytree.Node('Lindsay', parent = self.lucille)
+        self.buster = anytree.Node('Buster', parent = self.lucille)
+        self.george_michael = anytree.Node('George Michael', parent = self.michael)
+        self.maeby = anytree.Node('Maeby', parent = self.lindsay)

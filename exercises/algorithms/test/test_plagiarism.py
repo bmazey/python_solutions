@@ -1,4 +1,4 @@
-from exercises.algorithms.src.rabin_karp import search
+import exercises.algorithms.src.rabin_karp
 
 def test_is_plagiarism():
     pat = "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of " \
@@ -11,7 +11,7 @@ def test_is_plagiarism():
           "that some of its noisiest authorities insisted on its being received, for good or for evil, in the " \
           "superlative degree of comparison only."
 
-    plagiarism = search(pat, txt, 101)
+    plagiarism = exercises.algorithms.src.rabin_karp.search(pat, txt, 101)
     assert len(plagiarism) == 1
     assert plagiarism.pop() == 0
 
@@ -25,5 +25,5 @@ def test_is_not_plagiarism():
           "Whose misadventured piteous overthrows " \
           "Do with their death bury their parents' strife."
 
-    plagiarism = search(pat, txt, 101)
+    plagiarism = exercises.algorithms.src.rabin_karp.search(pat, txt, 101)
     assert len(plagiarism) == 0

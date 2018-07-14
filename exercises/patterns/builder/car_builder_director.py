@@ -1,10 +1,10 @@
-from exercises.patterns.builder.car_builder import CarBuilder
+import exercises.patterns.builder.car_builder
 
 class CarBuilderDirector(object):
 
     @staticmethod
     def construct_suv():
-        builder = CarBuilder()
+        builder = exercises.patterns.builder.car_builder.CarBuilder()
         builder.set_wheels(4)
         builder.set_doors(4)
         builder.set_fuel('unleaded gas')
@@ -13,7 +13,7 @@ class CarBuilderDirector(object):
 
     @staticmethod
     def construct_sports_car():
-        builder = CarBuilder()
+        builder = exercises.patterns.builder.car_builder.CarBuilder()
         builder.set_wheels(4)
         builder.set_doors(2)
         builder.set_fuel('premium gas')
@@ -22,7 +22,7 @@ class CarBuilderDirector(object):
 
     @staticmethod
     def construct_eighteen_wheeler():
-        builder = CarBuilder()
+        builder = exercises.patterns.builder.car_builder.CarBuilder()
         builder.set_wheels(18)
         builder.set_doors(2)
         builder.set_fuel('diesel')
@@ -31,7 +31,7 @@ class CarBuilderDirector(object):
 
     @staticmethod
     def construct_tesla():
-        builder = CarBuilder()
+        builder = exercises.patterns.builder.car_builder.CarBuilder()
         builder.set_wheels(4)
         builder.set_doors(4)
         builder.set_fuel('electricity')

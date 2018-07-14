@@ -1,25 +1,25 @@
-from abc import ABCMeta, abstractmethod
+import abc
 
 class Builder:
-    __metaclass__ = ABCMeta
+    __metaclass__ = abc.ABCMeta
 
-    @abstractmethod
+    @abc.abstractmethod
     def set_wheels(self, value):
         pass
 
-    @abstractmethod
+    @abc.abstractmethod
     def set_doors(self, value):
         pass
 
-    @abstractmethod
+    @abc.abstractmethod
     def set_fuel(self, value):
         pass
 
-    @abstractmethod
+    @abc.abstractmethod
     def set_color(self, value):
         pass
 
-    @abstractmethod
+    @abc.abstractmethod
     def get_result(self):
         pass
 
