@@ -1,6 +1,9 @@
-import random
-import challenges.interview.src.fizzbuzz as fb
+import pyprimes
+from challenges.interview.src.fizzbuzz import FizzBuzz
 
 def test_fizzbuzz():
-    assert fb.FizzBuzz.fizzbuzz()
-    k = random.randint(1, 101)
+    prime = pyprimes.primes_above(5)
+
+    assert FizzBuzz.fizzbuzz(i = next(prime) * 3) == 'fizz'
+    assert FizzBuzz.fizzbuzz(i = next(prime) * 5) == 'buzz'
+    assert FizzBuzz.fizzbuzz(i = next(prime) * 15) == 'fizzbuzz'

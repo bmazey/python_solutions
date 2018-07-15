@@ -1,2 +1,3 @@
+pyprimes
 anytree
 requests

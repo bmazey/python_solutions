@@ -1,10 +1,11 @@
-class FizzBuzz:
+class FizzBuzz(object):
     """This is our FizzBuzz class"""
-    def fizzbuzz(self, i):
+    @staticmethod
+    def fizzbuzz(i):
         string = ''
         if (i % 3) == 0:
             string += 'fizz'
 
-        if (i % 5 ) == 0:
+        if (i % 5) == 0:
             string += 'buzz'
         return string
