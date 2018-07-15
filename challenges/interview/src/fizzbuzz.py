@@ -1,5 +1,5 @@
 class FizzBuzz(object):
-    """This is our FizzBuzz class"""
+    """this is our FizzBuzz class"""
     @staticmethod
     def fizzbuzz(i):
         string = ''
