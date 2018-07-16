@@ -5,8 +5,8 @@ from challenges.interview.src.zoo.iguana import Iguana
 def test_panther_properties():
     panther = Panther('Bagheera')
 
-    assert panther.is_verterbrate() == True
-    assert panther.is_warm_blooded() == True
+    assert panther.is_verterbrate()
+    assert panther.is_warm_blooded()
 
     # ... to be continued ...
 
