@@ -12,6 +12,7 @@ from exercises.patterns.factory.enchanted_door import EnchantedDoor
 from exercises.patterns.factory.maze_factory import MazeFactory
 from exercises.patterns.factory.enchanted_maze_factory import EnchantedMazeFactory
 
+
 def create_maze():
     """Series of operations which create our Maze."""
     maze = Maze()
@@ -34,6 +35,7 @@ def create_maze():
 
     return maze
 
+
 def create_enchanted_maze():
     """Series of operations which create our Maze."""
     maze = Maze()
@@ -55,6 +57,7 @@ def create_enchanted_maze():
     room2.set_side(Direction.WEST, door)
 
     return maze
+
 
 # these are the ones we care the most about!
 def create_factory_maze_type_a(factory):
@@ -80,6 +83,7 @@ def create_factory_maze_type_a(factory):
 
     return maze
 
+
 def create_factory_maze_type_b(factory):
     """Series of operations which create our Maze."""
 
@@ -102,6 +106,7 @@ def create_factory_maze_type_b(factory):
     room2.set_side(Direction.WEST, factory.make_wall())
 
     return maze
+
 
 if __name__ == "__main__":
 

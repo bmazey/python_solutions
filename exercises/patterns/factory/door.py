@@ -2,6 +2,7 @@
 
 from exercises.patterns.factory.map_site import MapSite
 
+
 class Door(MapSite):
 
     """A Door joins two Rooms. It has two states: open and closed."""

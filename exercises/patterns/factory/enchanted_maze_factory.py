@@ -6,6 +6,7 @@ from exercises.patterns.factory.maze_factory import MazeFactory
 from exercises.patterns.factory.enchanted_room import EnchantedRoom
 from exercises.patterns.factory.enchanted_door import EnchantedDoor
 
+
 class EnchantedMazeFactory(MazeFactory):
 
     """Factory producting Enchanted Maze."""

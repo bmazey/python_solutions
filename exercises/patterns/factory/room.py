@@ -3,6 +3,7 @@
 from exercises.patterns.factory.map_site import MapSite
 from exercises.patterns.factory.direction import Direction
 
+
 class Room(MapSite):
 
     """Represent a Room with four sides"""

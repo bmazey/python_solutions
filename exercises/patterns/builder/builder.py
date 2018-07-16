@@ -1,5 +1,6 @@
 import abc
 
+
 class Builder:
     __metaclass__ = abc.ABCMeta
 

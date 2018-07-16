@@ -11,11 +11,14 @@ enchanted_maze = create_factory_maze_type_b(EnchantedMazeFactory)
 pinky = Player("Pinky", maze.get_room_by_number(1))
 harry = Wizard("Harry", enchanted_maze.get_room_by_number(1))
 
+
 def test_play_maze():
     play(maze, pinky)
 
+
 def test_play_enchanted_maze():
     play_enchanted(enchanted_maze, harry)
+
 
 def play(maze, player):
     print("\n--> Player {} enters the maze in room {}".format(player.player_id, player.current_room.room_number))
@@ -32,6 +35,7 @@ def play(maze, player):
     room2 = player.current_room
     for side in Direction.ALL:
         print("\t{} SIDE: {}".format(side, room2.get_side(side)))
+
 
 def play_enchanted(maze, player):
     print("\n---> Wizard {} enters the enchanted maze in room {}".format(player.player_id, player.current_room.room_number))

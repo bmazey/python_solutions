@@ -2,6 +2,7 @@
 
 from exercises.patterns.factory.door import Door
 
+
 class EnchantedDoor(Door):
 
     """An EnchantedDoor can't be opened manually, a wizard has to cast a spell to open it."""

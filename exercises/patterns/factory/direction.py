@@ -1,5 +1,6 @@
 # borrowed from http://pythoninthepink.blogspot.com/
 
+
 class Direction(object):
 
     """Simple structure representing 4 directions.

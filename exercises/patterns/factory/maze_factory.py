@@ -5,6 +5,7 @@ from exercises.patterns.factory.wall import Wall
 from exercises.patterns.factory.room import Room
 from exercises.patterns.factory.door import Door
 
+
 class MazeFactory(object):
 
     """Factory producing basic Maze."""

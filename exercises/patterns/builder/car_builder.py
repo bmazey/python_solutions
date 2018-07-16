@@ -1,6 +1,7 @@
 import exercises.patterns.builder.car
 from exercises.patterns.builder.builder import Builder
 
+
 class CarBuilder(Builder):
     def __init__(self):
         self.car = exercises.patterns.builder.car.Car()

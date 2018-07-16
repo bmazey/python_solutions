@@ -1,5 +1,6 @@
 # borrowed from http://pythoninthepink.blogspot.com/
 
+
 class Maze(object):
 
     """Maze contains Rooms"""

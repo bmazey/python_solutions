@@ -1,4 +1,3 @@
-
 class Singleton(type):
     _instances = {}
 
@@ -10,8 +9,9 @@ class Singleton(type):
         return cls._instances[cls]
 
 
-class Logger(metaclass = Singleton):
+class Logger(metaclass=Singleton):
     pass
 
+
 class SimpleSingleton(Singleton):
-  pass
+    pass

@@ -2,6 +2,7 @@
 
 from exercises.patterns.factory.room import Room
 
+
 class EnchantedRoom(Room):
 
     """An EnchantedRoom casts a spell on the player."""

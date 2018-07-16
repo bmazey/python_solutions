@@ -2,6 +2,7 @@
 
 from exercises.patterns.factory.player import Player
 
+
 class Wizard(Player):
 
     """A Wizard can cast spells."""

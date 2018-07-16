@@ -1,5 +1,6 @@
 # borrowed from http://pythoninthepink.blogspot.com/
 
+
 class Player(object):
 
     """Represents position of a certain player."""
