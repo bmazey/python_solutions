@@ -5,8 +5,8 @@ def main():
     print(string)
 
     # an integer is on the number line
-    dalmations = 101
-    print("number of dalmations: " + str(dalmations))
+    dalmatians = 101
+    print("number of dalmatians: " + str(dalmatians))
 
     # a float can represent numbers with decimal places
     money = 2.5
