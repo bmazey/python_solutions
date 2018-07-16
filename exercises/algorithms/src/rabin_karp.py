@@ -45,7 +45,7 @@ def search(pat, txt, q):
             j += 1
             # if p == t and pat[0...M-1] = txt[i, i+1, ...i+M-1]
             if j == M:
-                print("Pattern found at index " + str(i))
+                print("Pattern found at index " + str(i) + " " + pat)
                 matches.append(i)
 
         # Calculate hash value for next window of text: Remove
@@ -56,6 +56,6 @@ def search(pat, txt, q):
             # We might get negative values of t, converting it to
             # positive
             if t < 0:
-                t = t + q
+                t += q
 
-        return matches
+    return matches
