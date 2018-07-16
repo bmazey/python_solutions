@@ -16,6 +16,8 @@ def main():
     new_money = int(money)
     print("new money: " + str(new_money))
 
+    # TODO - cast dalmatians to float ...
+
 
 if __name__ == '__main__':
     main()

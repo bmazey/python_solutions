@@ -18,7 +18,7 @@ def search(pat, txt, q):
     t = 0  # hash value for txt
     h = 1
 
-    #matches are indexes of matches to be returned
+    # matches are indexes of matches to be returned
     matches = list()
 
     # The value of h would be "pow(d, M-1)%q"

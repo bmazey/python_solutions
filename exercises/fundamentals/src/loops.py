@@ -3,6 +3,7 @@ def main():
     for character in sentence1:
         print('first loop: ' + character)
 
+    # 'unpacking'
     sentence2 = "the rain in Spain falls mainly on the plain"
     for index, c in enumerate(sentence2):
         print('second loop: ' + c + ' index: ' + str(index))

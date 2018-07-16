@@ -18,6 +18,11 @@ def main():
     if is_not_sunny or not_wearing_sunscreen:
         print("We won't see this either!")
 
+    if not is_sunny or not wearing_sunscreen:
+        print("We won't see this either!")
+
+    # TODO - make more examples ...
+
 
 if __name__ == '__main__':
     main()
