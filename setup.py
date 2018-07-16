@@ -1,5 +1,3 @@
-import os
-import sys
 from setuptools import setup
 
 setup(
@@ -12,6 +10,3 @@ setup(
    # install_requires=['bar', 'greek'],
    # TODO - manage dependencies
 )
-
-# added this hack for tests on Travis-CI
-sys.path.append(os.getcwd())
