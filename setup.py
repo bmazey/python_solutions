@@ -1,3 +1,5 @@
+import os
+import sys
 from setuptools import setup
 
 setup(
@@ -7,5 +9,9 @@ setup(
    author='brandon mazey',
    author_email='b.mazey@nyu.edu',
    py_modules=['challenges', 'exercises'],
-   # install_requires=['bar', 'greek'],  # external packages as dependencies
+   # install_requires=['bar', 'greek'],
+   # TODO - manage dependencies
 )
+
+# added this hack for tests on Travis-CI
+sys.path.append(os.getcwd())
