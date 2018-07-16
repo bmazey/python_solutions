@@ -22,6 +22,14 @@ def main():
     # outputs [1, 2, 3, 9, 9, 9]
     print('list2 = ', list2)
 
+    dictionary = {'hello': 'world', 'weight': 'African or European?'}
+
+    # prints 'world'
+    print(dictionary.get('hello'))
+
+    # prints 'African or European?'
+    print(dictionary.get('weight'))
+
 
 def append_to_sequence(sequence):
     sequence += (9, 9, 9)
