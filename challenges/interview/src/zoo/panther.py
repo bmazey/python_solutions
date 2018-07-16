@@ -1,5 +1,6 @@
 from challenges.interview.src.zoo.mammal import Mammal
 
+
 class Panther(Mammal):
     """this is our Panther class which 'extends' Mammal"""
     def __init__(self, name):
@@ -8,5 +9,6 @@ class Panther(Mammal):
         self.color = 'black'
         self.size = 5
 
-    def call(self):
+    @staticmethod
+    def call():
         return "ROAR!"

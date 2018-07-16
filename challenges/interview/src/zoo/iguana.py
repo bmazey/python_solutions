@@ -16,7 +16,7 @@ class Iguana(Reptile):
         return self.color
 
     def get_size(self):
-        return self.color
+        return self.size
 
     # @override test
     def eat(self):

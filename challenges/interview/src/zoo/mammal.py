@@ -1,5 +1,6 @@
 from challenges.interview.src.zoo.animal import Animal
 
+
 class Mammal(Animal):
     """this 'abstract class' defines a Mammal"""
     def __init__(self, name):
@@ -11,7 +12,7 @@ class Mammal(Animal):
     def is_warm_blooded(self):
         return self.warm_blooded
 
-    def is_verterbrate(self):
+    def is_vertebrate(self):
         return self.vertebrate
 
     # all mammals have specialized teeth ... they eat differently!
