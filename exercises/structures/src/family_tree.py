@@ -15,7 +15,7 @@ class FamilyTree:
     def populate_family_tree(self):
 
         # ex: child = Node('Child Name', parent = parent_node)
-
+        self.lucille = anytree.Node("Lucille")
         self.george_oscar = anytree.Node('George Oscar', parent=self.lucille)
         self.michael = anytree.Node('Michael', parent=self.lucille)
         self.lindsay = anytree.Node('Lindsay', parent=self.lucille)
