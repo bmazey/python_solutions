@@ -19,5 +19,5 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-# python solutions [![Build Status](https://travis-ci.com/bmazey/python_solutions.svg?branch=master)](https://travis-ci.com/bmazey/python_solutions)
+# python solutions [![Build Status](https://travis-ci.com/bmazey/python_solutions.svg?token=qj78GubcUUGyp7Atyp5E&branch=master)](https://travis-ci.com/bmazey/python_solutions)
 This repo holds all of our daily python solutions!
