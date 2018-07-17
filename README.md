@@ -19,5 +19,5 @@
                            `------`--`     ``--'--'    `-----`---`'----`--`
 </pre>
 
-# python exercises
-This repo holds all of our daily python exercises!
+# python solutions [![Build Status](https://travis-ci.com/bmazey/python_solutions.svg?branch=master)](https://travis-ci.com/bmazey/python_solutions)
+This repo holds all of our daily python solutions!
