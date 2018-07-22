@@ -1,3 +1,4 @@
 pyprimes
 anytree
 requests
+krakenex

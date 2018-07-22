@@ -13,8 +13,8 @@ def main():
     print(BtcPricer.get_btc_usd_price())
     print(EthPricer.get_eth_usd_price())
 
-    print(BtcPricer.get_btc_can_price())
-    print(EthPricer.get_eth_can_price())
+    print(BtcPricer.get_btc_cad_price())
+    print(EthPricer.get_eth_cad_price())
 
 
 if __name__ == '__main__':
