@@ -14,7 +14,7 @@ def test_is_plagiarism():
 
     plagiarism = exercises.algorithms.src.rabin_karp.search(pat, txt, 101)
     assert len(plagiarism) == 1
-    assert plagiarism.pop() == 0
+    assert plagiarism[0] == 0
 
 
 def test_is_not_plagiarism():
@@ -42,3 +42,4 @@ def test_is_also_plagiarism():
 
     plagiarism = exercises.algorithms.src.rabin_karp.search(pat, txt, 101)
     assert len(plagiarism) == 1
+    assert plagiarism[0] == 499

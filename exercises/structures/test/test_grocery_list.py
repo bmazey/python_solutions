@@ -1,6 +1,5 @@
-import pytest
-
 from exercises.structures.src.grocery_list import GroceryList
+
 
 gl = GroceryList()
 gl.populate_list()
