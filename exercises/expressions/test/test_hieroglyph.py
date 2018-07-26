@@ -6,4 +6,4 @@ def test_sacred_cat():
 
 
 def test_alphanumeric_glyph():
-    assert Hieroglyph.alphanumeric_glyph('abcd12345')
+    assert Hieroglyph.alphanumeric_glyph('wxyd67891')
