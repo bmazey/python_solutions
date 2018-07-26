@@ -30,4 +30,13 @@ def test_avoid_nile_crocodile():
 
 def test_find_gold_scarab():
     assert not Hieroglyph.find_gold_scarab('gold')
-    assert Hieroglyph.find_gold_scarab('goldscarab') == 'gold'
+    assert not Hieroglyph.find_gold_scarab('scarab')
+    assert not Hieroglyph.find_gold_scarab('scarab gold')
+    assert Hieroglyph.find_gold_scarab('gold scarab') == 'gold'
+
+
+def test_steal_crystal_skull():
+    assert Hieroglyph.steal_crystal_skull('crystal skull') == 'crystal idol'
+    assert Hieroglyph.steal_crystal_skull('skull crystal skull') == 'idol crystal idol'
+    assert Hieroglyph.steal_crystal_skull('crystal boulder') == 'crystal boulder'
+    assert Hieroglyph.steal_crystal_skull('skull skull boulder skull') == 'idol idol boulder idol'

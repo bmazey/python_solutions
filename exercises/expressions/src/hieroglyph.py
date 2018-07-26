@@ -20,7 +20,7 @@ class Hieroglyph(object):
 
     @staticmethod
     def find_gold_scarab(s):
-        match = re.match(r'gold(?=scarab)', s)
+        match = re.match(r'gold(?= scarab)', s)
         if match:
             print("match detected! " + match.group())
             return match.group()
@@ -28,9 +28,9 @@ class Hieroglyph(object):
             return False
 
     @staticmethod
-    def eye_of_horus(s):
-        return
+    def raid_tuts_tomb(s):
+        return re.match(r'test',s, re.I)
 
     @staticmethod
-    def raid_tuts_tomb(s):
-        return
+    def steal_crystal_skull(s):
+        return s.replace('skull', 'idol')
