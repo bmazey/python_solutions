@@ -9,3 +9,7 @@ class Hieroglyph(object):
     @staticmethod
     def worship_sacred_cats(s):
         return
+
+    @staticmethod
+    def alphanumeric_glyph(s):
+        return re.match(r'[a-z]{4}[0-9]{5}', s)
