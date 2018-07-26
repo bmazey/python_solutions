@@ -15,12 +15,17 @@ class Hieroglyph(object):
         return re.match(r'[a-z]{4}[0-9]{5,7}', s)
 
     @staticmethod
-    def find_gold_scarab(s):
-        return re.match(r'', s)
+    def avoid_nile_crocodile(s):
+        return re.match(r'^((?!crocodile).)*$', s)
 
     @staticmethod
-    def avoid_nile_crocodile(s):
-        return re.match(r'', s)
+    def find_gold_scarab(s):
+        match = re.match(r'gold(?=scarab)', s)
+        if match:
+            print("match detected! " + match.group())
+            return match.group()
+        else:
+            return False
 
     @staticmethod
     def eye_of_horus(s):
