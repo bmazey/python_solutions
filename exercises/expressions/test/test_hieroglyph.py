@@ -35,8 +35,20 @@ def test_find_gold_scarab():
     assert Hieroglyph.find_gold_scarab('gold scarab') == 'gold'
 
 
+def test_raid_tuts_tomb():
+    assert Hieroglyph.raid_tuts_tomb('tomb')
+    assert Hieroglyph.raid_tuts_tomb('tomb ')
+    assert Hieroglyph.raid_tuts_tomb('tomb tomb tomb')
+    assert not Hieroglyph.raid_tuts_tomb('tomb tut tomb tomb')
+    assert not Hieroglyph.raid_tuts_tomb('tut tomb tomb')
+    assert not Hieroglyph.raid_tuts_tomb('tomb tomb Tut tomb')
+    assert not Hieroglyph.raid_tuts_tomb('TUT tomb tomb tomb')
+    assert not Hieroglyph.raid_tuts_tomb('TOMB TOMB tUt TOMB TOMB')
+
+
 def test_steal_crystal_skull():
     assert Hieroglyph.steal_crystal_skull('crystal skull') == 'crystal idol'
     assert Hieroglyph.steal_crystal_skull('skull crystal skull') == 'idol crystal idol'
     assert Hieroglyph.steal_crystal_skull('crystal boulder') == 'crystal boulder'
     assert Hieroglyph.steal_crystal_skull('skull skull boulder skull') == 'idol idol boulder idol'
+

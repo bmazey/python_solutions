@@ -29,7 +29,7 @@ class Hieroglyph(object):
 
     @staticmethod
     def raid_tuts_tomb(s):
-        return re.match(r'test',s, re.I)
+        return re.match(r'^((?!tut).)*$', s, re.I)
 
     @staticmethod
     def steal_crystal_skull(s):
