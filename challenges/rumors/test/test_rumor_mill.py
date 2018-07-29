@@ -1,8 +1,6 @@
 from unittest import TestCase
 from challenges.rumors.src.application import create_app
 
-# adding comments for travis CI
-
 
 class SomeTest(TestCase):
     def setUp(self):
