@@ -1,4 +1,6 @@
+flask
 pyprimes
 anytree
 requests
 krakenex
+sqlalchemy
