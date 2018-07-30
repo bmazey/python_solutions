@@ -7,7 +7,7 @@ api = Api(application)
 
 
 @api.route("/rumor")
-class HelloWorld(Resource):
+class RumorRoute(Resource):
     def get(self):
         return {'brandon': 'listens to selena gomez'}
 
