@@ -17,6 +17,7 @@ class RumorRoute(Resource):
         rumor = Rumor(name='brandon', content='has a jonas brothers poster')
         db.session.add(rumor)
         db.session.commit()
+        return {'success': 'OK'}
 
 
 def get_app():
