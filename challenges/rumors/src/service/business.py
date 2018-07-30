@@ -1,53 +1,25 @@
 from challenges.rumors.src.database import db
-from challenges.rumors.src.database.models import Post, Category
+from challenges.rumors.src.database.models import Rumor
 
 
-def create_blog_post(data):
+def create_rumor(data):
     title = data.get('title')
     body = data.get('body')
-    category_id = data.get('category_id')
-    category = Category.query.filter(Category.id == category_id).one()
-    post = Post(title, body, category)
-    db.session.add(post)
+    rumor = Rumor(title, body)
+    db.session.add(rumor)
     db.session.commit()
 
 
-def update_post(post_id, data):
-    post = Post.query.filter(Post.id == post_id).one()
-    post.title = data.get('title')
-    post.body = data.get('body')
-    category_id = data.get('category_id')
-    post.category = Category.query.filter(Category.id == category_id).one()
-    db.session.add(post)
+def update_rumor(rumor_id, data):
+    rumor = Rumor.query.filter(Rumor.id == rumor_id).one()
+    rumor.title = data.get('title')
+    rumor.body = data.get('body')
+    db.session.add(rumor)
     db.session.commit()
 
 
-def delete_post(post_id):
-    post = Post.query.filter(Post.id == post_id).one()
-    db.session.delete(post)
+def delete_rumor(rumor_id):
+    rumor = Rumor.query.filter(Rumor.id == rumor_id).one()
+    db.session.delete(rumor)
     db.session.commit()
 
-
-def create_category(data):
-    name = data.get('name')
-    category_id = data.get('id')
-
-    category = Category(name)
-    if category_id:
-        category.id = category_id
-
-    db.session.add(category)
-    db.session.commit()
-
-
-def update_category(category_id, data):
-    category = Category.query.filter(Category.id == category_id).one()
-    category.name = data.get('name')
-    db.session.add(category)
-    db.session.commit()
-
-
-def delete_category(category_id):
-    category = Category.query.filter(Category.id == category_id).one()
-    db.session.delete(category)
-    db.session.commit()

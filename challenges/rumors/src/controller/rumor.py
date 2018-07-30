@@ -2,7 +2,7 @@ import logging
 
 from flask import request
 from flask_restplus import Resource
-from challenges.rumors.src.service.business import create_blog_post, update_post, delete_post
+from challenges.rumors.src.service.business import create_rumor, update_rumor, delete_rumor
 from challenges.rumors.src.dto.serializers import rumor, page_of_rumors
 from challenges.rumors.src.config.validators import pagination_arguments
 from challenges.rumors.src.config.restplus import api
@@ -36,7 +36,7 @@ class RumorCollection(Resource):
         """
         Creates a new blog post.
         """
-        create_blog_post(request.json)
+        create_rumor(request.json)
         return None, 201
 
 
@@ -58,7 +58,7 @@ class PostItem(Resource):
         Updates a blog post.
         """
         data = request.json
-        update_post(id, data)
+        update_rumor(id, data)
         return None, 204
 
     @api.response(204, 'Post successfully deleted.')
@@ -66,7 +66,7 @@ class PostItem(Resource):
         """
         Deletes blog post.
         """
-        delete_post(id)
+        delete_rumor(id)
         return None, 204
 
 
