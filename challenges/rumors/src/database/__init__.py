@@ -4,6 +4,6 @@ db = SQLAlchemy()
 
 
 def reset_database():
-    from rumor.database.models import Post, Category  # noqa
+    from challenges.rumors.src.database.models import Rumor
     db.drop_all()
     db.create_all()
