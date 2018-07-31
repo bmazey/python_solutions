@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_restplus import Resource, Api
-from challenges.rumors.src.rumor import Rumor
-from challenges.rumors.src import db
+from challenges.rumors.src.rumor import Rumor, create_rumor
 
 
 application = Flask(__name__)
@@ -14,9 +13,8 @@ class RumorRoute(Resource):
         return {'brandon': 'listens to selena gomez'}
 
     def post(self):
-        rumor = Rumor(name='brandon', content='has a jonas brothers poster')
-        db.session.add(rumor)
-        db.session.commit()
+        rumor = Rumor(name='brandon', content='has a jonas brothers poster', id=1)
+        create_rumor(rumor)
         return {'success': 'OK'}
 
 

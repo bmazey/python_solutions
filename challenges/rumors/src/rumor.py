@@ -1,4 +1,10 @@
-from challenges.rumors.src import db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/db.sqlite'
+db = SQLAlchemy(app)
 
 
 class Rumor(db.Model):
@@ -8,3 +14,12 @@ class Rumor(db.Model):
 
     def __repr__(self):
         return '<Rumor %r>' % self.content
+
+
+db.create_all()
+db.session.commit()
+
+
+def create_rumor(rumor):
+    db.session.add(rumor)
+    db.session.commit()
