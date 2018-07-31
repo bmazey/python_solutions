@@ -1,10 +1,18 @@
-from flask import Flask
+from flask import Flask, request
 from flask_restplus import Resource, Api
-from challenges.rumors.src.rumor import Rumor, create_rumor
+from challenges.rumors.src.rumor import create_rumor
+from flask_restplus import fields
+# from challenges.rumors.src.dto import rumor
 
 
 application = Flask(__name__)
 api = Api(application)
+
+rumor = api.model('rumor', {
+    'id': fields.Integer(readOnly=True, description='unique identifier of a rumor'),
+    'name': fields.String(required=True, description='rumor title'),
+    'content': fields.String(required=True, description='rumor content'),
+})
 
 
 @api.route("/rumor")
@@ -12,10 +20,10 @@ class RumorRoute(Resource):
     def get(self):
         return {'brandon': 'listens to selena gomez'}
 
+    @api.expect(rumor)
+    @api.response(201, 'Rumor successfully created.')
     def post(self):
-        rumor = Rumor(name='brandon', content='has a jonas brothers poster', id=1)
-        create_rumor(rumor)
-        return {'success': 'OK'}
+        create_rumor(request.json)
 
 
 def get_app():

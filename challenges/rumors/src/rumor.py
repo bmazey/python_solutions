@@ -20,6 +20,10 @@ db.create_all()
 db.session.commit()
 
 
-def create_rumor(rumor):
+def create_rumor(data):
+    id = data.get('id')
+    name = data.get('name')
+    content = data.get('content')
+    rumor = Rumor(id=id, name=name, content=content)
     db.session.add(rumor)
     db.session.commit()
