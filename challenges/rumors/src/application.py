@@ -88,6 +88,7 @@ def configure_db():
     db.session.commit()
 
 
+# for testing only!
 def get_app():
     return application
 

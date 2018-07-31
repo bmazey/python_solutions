@@ -17,7 +17,7 @@ class RumorMillTest(TestCase):
 
     def test_post_and_get(self):
         response = self.client.post('/rumor', data=dict(name='alyssa', content='cheated on her spanish homework'))
-        print(response.get_json())
+        print(response.json())
         self.assertTrue(200, response.status_code)
         # self.assertTrue(response.get_json().get('brandon') == 'listens to selena gomez')
 
