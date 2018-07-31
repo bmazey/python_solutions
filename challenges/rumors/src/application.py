@@ -18,7 +18,7 @@ rumor = api.model('rumor', {
     'content': fields.String(required=True, description='rumor content'),
 })
 
-rumor_id = api.model('rumor', {
+rumor_id = api.model('rumor_id', {
     'id': fields.String(readOnly=True, description='unique identifier of a rumor'),
     'name': fields.String(required=True, description='rumor name'),
     'content': fields.String(required=True, description='rumor content'),
@@ -60,8 +60,8 @@ class RumorRoute(Resource):
     def get(self):
         return {'brandon': 'listens to selena gomez'}
 
-    @api.expect(rumor)
     # @api.response(201, 'Rumor successfully created.')
+    @api.expect(rumor)
     @api.marshal_with(rumor_id)
     def post(self):
         new_rumor = create_rumor(request.json)
