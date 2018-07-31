@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restplus import Resource, Api
-from challenges.rumors.src.rumor import create_rumor
+from challenges.rumors.src.rumor import Rumor, create_rumor
 from flask_restplus import fields
 # from challenges.rumors.src.dto import rumor
 
@@ -24,6 +24,13 @@ class RumorRoute(Resource):
     @api.response(201, 'Rumor successfully created.')
     def post(self):
         create_rumor(request.json)
+
+
+@api.route("/rumor/<int:id>")
+class RumorIdRoute(Resource):
+    @api.marshal_with(rumor)
+    def get(self, id):
+        return Rumor.query.filter(Rumor.id == id).one()
 
 
 def get_app():
