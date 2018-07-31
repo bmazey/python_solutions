@@ -1,4 +1,5 @@
-from flask import Flask, request
+import uuid
+from flask import Flask, request, jsonify
 from flask_restplus import Resource, Api
 from flask_restplus import fields
 from flask_sqlalchemy import SQLAlchemy
@@ -13,8 +14,13 @@ db = SQLAlchemy(application)
 json marshaller (object <-> json)
 '''
 rumor = api.model('rumor', {
-    'id': fields.Integer(readOnly=True, description='unique identifier of a rumor'),
     'name': fields.String(required=True, description='rumor title'),
+    'content': fields.String(required=True, description='rumor content'),
+})
+
+rumor_id = api.model('rumor', {
+    'id': fields.String(readOnly=True, description='unique identifier of a rumor'),
+    'name': fields.String(required=True, description='rumor name'),
     'content': fields.String(required=True, description='rumor content'),
 })
 
@@ -26,7 +32,7 @@ ignore warning as props will resolve at runtime
 
 
 class Rumor(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Text(80), primary_key=True)
     name = db.Column(db.String(80), unique=False, nullable=False)
     content = db.Column(db.String(120), unique=True, nullable=False)
 
@@ -35,12 +41,13 @@ class Rumor(db.Model):
 
 
 def create_rumor(data):
-    id = data.get('id')
+    id = str(uuid.uuid4())
     name = data.get('name')
     content = data.get('content')
     rumor = Rumor(id=id, name=name, content=content)
     db.session.add(rumor)
     db.session.commit()
+    return rumor
 
 
 '''
@@ -54,15 +61,17 @@ class RumorRoute(Resource):
         return {'brandon': 'listens to selena gomez'}
 
     @api.expect(rumor)
-    @api.response(201, 'Rumor successfully created.')
+    # @api.response(201, 'Rumor successfully created.')
+    @api.marshal_with(rumor_id)
     def post(self):
-        create_rumor(request.json)
+        new_rumor = create_rumor(request.json)
+        return Rumor.query.filter(Rumor.id == new_rumor.id).one()
 
 
 # id is a url-encoded variable
-@api.route("/rumor/<int:id>")
+@api.route("/rumor/<string:id>")
 class RumorIdRoute(Resource):
-    @api.marshal_with(rumor)
+    @api.marshal_with(rumor_id)
     # id becomes a method param in this GET
     def get(self, id):
         # use sqlalchemy to get a rumor by ID
