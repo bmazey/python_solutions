@@ -1,18 +1,51 @@
 from flask import Flask, request
 from flask_restplus import Resource, Api
-from challenges.rumors.src.rumor import Rumor, create_rumor
 from flask_restplus import fields
-# from challenges.rumors.src.dto import rumor
+from flask_sqlalchemy import SQLAlchemy
 
-
+# simple flask application definition
 application = Flask(__name__)
 api = Api(application)
+application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/db.sqlite'
+db = SQLAlchemy(application)
 
+'''
+json marshaller (object <-> json)
+'''
 rumor = api.model('rumor', {
     'id': fields.Integer(readOnly=True, description='unique identifier of a rumor'),
     'name': fields.String(required=True, description='rumor title'),
     'content': fields.String(required=True, description='rumor content'),
 })
+
+
+'''
+Rumor object model (Rumor <-> rumor) 
+ignore warning as props will resolve at runtime
+'''
+
+
+class Rumor(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=False, nullable=False)
+    content = db.Column(db.String(120), unique=True, nullable=False)
+
+    def __repr__(self):
+        return '<Rumor %r>' % self.content
+
+
+def create_rumor(data):
+    id = data.get('id')
+    name = data.get('name')
+    content = data.get('content')
+    rumor = Rumor(id=id, name=name, content=content)
+    db.session.add(rumor)
+    db.session.commit()
+
+
+'''
+API controllers
+'''
 
 
 @api.route("/rumor")
@@ -26,11 +59,24 @@ class RumorRoute(Resource):
         create_rumor(request.json)
 
 
+# id is a url-encoded variable
 @api.route("/rumor/<int:id>")
 class RumorIdRoute(Resource):
     @api.marshal_with(rumor)
+    # id becomes a method param in this GET
     def get(self, id):
+        # use sqlalchemy to get a rumor by ID
         return Rumor.query.filter(Rumor.id == id).one()
+
+
+'''
+helper methods (for testing and sqlalchemy configuration)
+'''
+
+
+def configure_db():
+    db.create_all()
+    db.session.commit()
 
 
 def get_app():
@@ -38,6 +84,7 @@ def get_app():
 
 
 def main():
+    configure_db()
     application.debug = True
     application.run()
 
