@@ -2,7 +2,7 @@
 
 def main():
     # tuples are immutable
-    tuple1 = (1, 2, 3)
+    tuple1 = (1, "hello", 3.5)
 
     # lists are mutable
     list1 = [1, 2, 3]
