@@ -10,10 +10,10 @@ def main():
     tuple2 = append_to_sequence(tuple1)
     list2 = append_to_sequence(list1)
 
-    # outputs (1, 2, 3)
+    # outputs (1, 'hello', 3.5)
     print('tuple1 = ', tuple1)
 
-    # outputs (1, 2, 3, 9, 9, 9)
+    # outputs (1, 'hello', 3.5, 9, 9, 9)
     print('tuple2 = ', tuple2)
 
     # outputs [1, 2, 3, 9, 9, 9]
