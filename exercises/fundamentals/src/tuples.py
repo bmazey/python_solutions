@@ -2,10 +2,10 @@
 
 def main():
     # tuples are immutable
-    tuple1 = (1, "hello", 3.5)
+    tuple1 = (1, 'hello', 3.5)
 
     # lists are mutable
-    list1 = [1, 2, 3]
+    list1 = [1, 'world', 5.5]
 
     tuple2 = append_to_sequence(tuple1)
     list2 = append_to_sequence(list1)
@@ -16,10 +16,10 @@ def main():
     # outputs (1, 'hello', 3.5, 9, 9, 9)
     print('tuple2 = ', tuple2)
 
-    # outputs [1, 2, 3, 9, 9, 9]
+    # outputs [1, 'world', 5.5, 9, 9, 9]
     print('list1 = ', list1)
 
-    # outputs [1, 2, 3, 9, 9, 9]
+    # outputs [1, 'world', 5.5, 9, 9, 9]
     print('list2 = ', list2)
 
     dictionary = {'hello': 'world', 'weight': 'African or European?'}
